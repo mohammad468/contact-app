@@ -1,10 +1,9 @@
 const express = require("express");
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose", { useNewUrlParser: true });
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const mongoose = require("mongoose", { useNewUrlParser: true });
 
 mongoose
   .connect("mongodb://localhost:27017/courseDb")
@@ -21,5 +20,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("server run port 3000");
+  console.log("server run in port 3000");
 });
